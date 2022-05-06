@@ -1,0 +1,31 @@
+.modal__container{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: right;
+  transition: 0.5s;
+  opacity: 0;
+  pointer-events: none;
+
+  .modal__inner{
+    min-width: 440px;
+    background-color: #ffffff;
+    padding: 30px;
+    transform: scale(0.5);
+    transition: 0.4s all;
+    max-width: 400px;
+  }
+}
+.modal__container.active{
+  opacity: 1;
+  pointer-events: all;
+}
+.modal__inner.active{
+  transform: scale(1);
+
+
+}

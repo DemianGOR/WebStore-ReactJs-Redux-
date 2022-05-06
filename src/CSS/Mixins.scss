@@ -1,0 +1,11 @@
+@mixin positionation4($first,$second,$third,$fourth){
+  grid-column-start: $first;
+  grid-column-end: $second;
+  grid-row-start: $third;
+  grid-row-end: $fourth;
+}
+@mixin positionation2($first,$second){
+  grid-column-start: $first;
+  grid-column-end: $second;
+}
+

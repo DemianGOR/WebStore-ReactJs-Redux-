@@ -1,0 +1,75 @@
+.sign__container{
+  position: absolute;
+  top: 0;
+  margin-left: -6%;
+  background: linear-gradient(blue, pink);
+  background-size: 100%;
+  width: 106%;
+  height: 100%;
+  background-repeat: no-repeat;
+
+  .sign__inner{
+    background-color: rgb(0,0,0,.5);
+    margin:10% auto;
+    border: solid 1px #282c34;
+    width: 20%;
+    height: 50%;
+    min-width: 350px;
+    min-height: 500px;
+
+    .sign__form{
+      display: grid;
+      margin-top: 30px;
+      .sign__title{
+        color: #FFFFFF;
+        font-family: "Times New Roman";
+        line-height: 23px;
+        font-size: 19px;
+      }
+
+      .sign__input{
+        height: 100%;
+        width: 80%;
+        margin: 0 auto;
+      }
+      .sign__bottom {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(2,1fr);
+        margin-top: 20%;
+        .sign__button {
+          height: 180%;
+          width: 80%;
+          margin-left: 20px;
+          border-radius: 7px;
+          background-color: rgb(0,0,0,.0);
+          font-family: "Times New Roman";
+          line-height: 23px;
+          font-size: 18px;
+          color: #ffffff;
+
+        }
+
+        .sign__go-back {
+          color: #FFFFFF;
+          font-size: 12px;
+        }
+        .google__login{
+          margin-top: 40px;
+          grid-row: 2;
+        }
+      }
+    }
+
+  }
+}
+.signOut{
+  width: 100px;
+  height: 35px;
+  border: none;
+  background-color: #717171;
+  color: #000000;
+}
+.signOut:hover{
+  background-color: #ffffff;
+}

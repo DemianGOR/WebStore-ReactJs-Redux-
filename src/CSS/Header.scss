@@ -1,33 +1,50 @@
+@import "Mixins";
+
 .header__container{
   width: 88%;
   height: 15%;
   background-color: #181818;
   font-size: 18px;
   margin: 0 auto;
+  border-radius: 0 0 7px 7px;
+  max-height: 90px;
+  min-width: 1080px;
   .header__inner{
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    height: 10%;
+      height: 15%;
+
     .header__menu{
+      height: 50px;
       list-style: none;
       position: relative;
+      grid-template-columns: repeat(6,1fr);
+      display: grid;
+
+      .link__off{
+        color:#ffffff;
+        text-decoration: none;
+      }
       .header__menu{
+        height: 235px;
+        width: 200px;
         display: none;
         position: absolute;
         top: 100%;
-
+        margin:-10px 0 0 -7%;
         .header__menu-item{
+          margin-top: 5px;
+          height: 50px;
           min-width: 90px;
           width: 130px;
           float:none;
           display:list-item;
           position: relative;
-          margin-left: -100px;
-          margin-top: 16px;
           background-color: red;
           border: outset 2px #181818;
           box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .2);
           font-size: 100%;
+          text-decoration:none;
+
         }
         .header__menu-item:hover{
           background-color: #FFFFFF;
@@ -38,17 +55,20 @@
       }
 
       .header__menu-item{
-        margin: auto 0 auto 10%;
+        height: 20px;
+        margin:0 auto 0 10%;
         display:inline-block;
         background-color: #181818;
         color:#FFF;
         font-size:20px;
         line-height: 60px;
-
+        text-decoration:none;
         .item__list{
-          display:block;
-          padding:0 10px;
-          text-decoration:none;
+          color: #FFF;
+          text-decoration: none;
+        }
+        .item__list:hover{
+          color: #FF0000;
         }
       }
       .header__menu-item:hover{
@@ -61,16 +81,43 @@
       }
     }
     .button__sign{
-      margin: auto 5%  auto 80%;
-      color: #FFFFFF;
+      @include positionation2(6,6);
+      width: 110px;
       background-color: #181818;
       border: solid #FFFFFF 2px;
       border-radius: 7px;
       font-size: 22px;
+      text-decoration:none;
+      margin:5% auto;
     }
     .button__sign:hover{
-      color: #ff0000;
+      border: 0 solid;
+    }
 
+    .user__container{
+      @include positionation2(6,6);
+      max-width: 200px;
+      grid-template-columns: repeat(2,1fr);
+      display: grid;
+      .user__img{
+        width: 50px;
+        height: 50px;
+        border-radius: 20px;
+      }
+      .user__name{
+        width: 100px;
+        height: 100px;
+        font-size: 15px;
+        color:#ffffff;
+        list-style: none;
+
+        .user__menu-item{
+          display: none;
+
+        }
+
+      }
+      .user__name:hover .user__menu-item {display: block;}
     }
   }
 }

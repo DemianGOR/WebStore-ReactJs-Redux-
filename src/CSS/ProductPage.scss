@@ -1,0 +1,78 @@
+@import "Mixins";
+
+.product__container{
+  width: 100%;
+  top:13%;
+  left: 0;
+  background-color: #ffffff;
+  .product__inner{
+    margin: 40px 8% 0 8%;
+    display: grid;
+    min-width: 900px;
+    max-height: 1000px;
+    .product__img{
+      max-width: 300px;
+      max-height: 500px;
+      margin: auto 60px;
+    @include positionation4(-1,3,-1,6);
+    }
+    .product__name{
+      margin: auto ;
+
+      font-size: 30px;
+      @include positionation4(2,6,-1,1);
+    }
+    .product__description{
+      overflow: scroll;
+      max-width:600px;
+      max-height: 300px;
+      @include positionation4(3,6,2,4);
+      margin: 40px;
+
+    }
+    .bottom__section {
+      display: grid;
+      @include positionation4(2, 6, 4, 6);
+
+      .product__quantity {
+        margin: auto;
+        @include positionation4(2, 3, 4, 6);
+
+      }
+
+      .product__price {
+        margin: auto;
+        @include positionation4(3, 4, 4, 6);
+
+      }
+
+      .product__button {
+        @include positionation4(4, 5, 4, 6);
+        width: 130px;
+        height: 45px;
+        margin: auto;
+
+
+      }
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: #000000;
+  border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
