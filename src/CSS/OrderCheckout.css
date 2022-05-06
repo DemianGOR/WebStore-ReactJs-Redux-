@@ -1,0 +1,82 @@
+.order__container {
+  width: 96%;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.order__container .order__inner {
+  display: grid;
+  margin: 30px;
+  grid-column-gap: 5%;
+  border-radius: 17px;
+}
+.order__container .order__inner .order__form {
+  box-shadow: 11px 1px 54px -19px rgba(34, 60, 80, 0.9);
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 550px;
+}
+.order__container .order__inner .order__form .order__main-title {
+  border-bottom: #181818 solid 1px;
+  width: 80%;
+  margin: 20px auto;
+}
+.order__container .order__inner .order__form .order__main .order__input-section {
+  display: flex;
+}
+.order__container .order__inner .order__form .order__main .order__input-section .order__title {
+  margin: 35px auto;
+  color: #000000;
+}
+.order__container .order__inner .order__form .order__main .order__input-section .order__input {
+  height: 30px;
+  width: 350px;
+  border-radius: 5px;
+  margin: 35px 30px auto;
+}
+.order__container .order__inner .order__form .order__main .order__input-section .order__input:focus {
+  border: solid #228b22 2px;
+  outline: none;
+}
+.order__container .order__inner .order__form .order__main .order__input-description {
+  height: 200px;
+  width: 400px;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+.order__container .order__inner .order__form .order__main .order__input-description:focus {
+  border: solid #228b22 2px;
+  outline: none;
+}
+
+.checkout__container .checkout__inner {
+  display: grid;
+  margin: 30px;
+  grid-column-gap: 5%;
+  border-radius: 17px;
+}
+.checkout__container .checkout__inner .checkout__form {
+  box-shadow: 11px 1px 54px -19px rgba(34, 60, 80, 0.9);
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+}
+.checkout__container .checkout__inner .checkout__form .checkout__main-title {
+  border-bottom: #181818 solid 1px;
+  width: 80%;
+  margin: 20px auto;
+}
+.checkout__container .checkout__inner .checkout__form .checkout__list {
+  height: 35vh;
+  overflow: scroll;
+}
+.checkout__container .checkout__inner .checkout__form .total__section {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 30px 0 30px;
+}
+
+/*# sourceMappingURL=OrderCheckout.css.map */
