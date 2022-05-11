@@ -14,7 +14,6 @@ import ProductPage from "./JS/ProductPage";
 import {CategoryItemList} from "./JS/CategoryItemList";
 import {OrderSubmit} from "./JS/OrderSubmit";
 
-
 let listOfPhones = [
     {
         id: 1,
@@ -101,13 +100,10 @@ const App =()=> {
     const [listOfP, setListOfP] = useState(listOfPhones);
     const [currentUser, setCurrentUser] = useState(user);
 
-
     const pass = {
-        email: "dmytro.hordiienko21@gmail.com",
         id: "102414693701386840515",
-        img: "https://lh3.googleusercontent.com/a/AATXAJz1qzGQnsN7FAESIBAyxao9tqWGEsNZ-CK9jtqQ=s96-c",
-        name: "Dmytro Hordiienko"
     };
+
     const clientId ="675266694834-ed76pk4qfh0qd3k8vtt0un7vsv0b3fn8.apps.googleusercontent.com"
     useEffect(()=>{
     const start=()=>{
@@ -122,7 +118,6 @@ const App =()=> {
    // const accessToken = gapi.auth.getToken().access_token;
 
     const addPhoneHandler = (Phone) => {
-
         setListOfP((prevPhones) => {
                 return [Phone,...prevPhones];
         });
@@ -137,16 +132,12 @@ const App =()=> {
             }
         setListCart((prevPhones) => {
             CartItem.quantity =1;
-
             return [CartItem,...prevPhones];
         });
-
-
-
     }
+
     const  deleteCartHandler1 = (CartItem) => {
         setListOfP((prevPhones) => {
-
             prevPhones.map(item => {
                 if (CartItem.id === item.id) {
                     item.quantity = CartItem.quantity;
@@ -155,31 +146,31 @@ const App =()=> {
             return [...prevPhones];
         });
     }
-        const  deleteCartHandler2 = (CartItem) => {
 
+    const  deleteCartHandler2 = (CartItem) => {
         setListCart((prevPhones) => {
-
             prevPhones.forEach(function(item, i) {
                 if (CartItem.cartID === item.cartID) {
                     prevPhones.splice(i, 1);
                 }
             })
-
             return [...prevPhones];
         });
-
     }
+
     const userSignIn=(user)=>{
+        console.log(user)
         setCurrentUser(() => {
-            console.log(user.id)
             return [user];
         });
     }
+
     const signOut=()=>{
         setCurrentUser(() => {
             return [];
         });
     }
+
   return (
     <div className="App">
         <Routes>
@@ -203,10 +194,13 @@ const App =()=> {
                 <Route path="Cart/checkout" element={<OrderSubmit phones={listOfP}
                                                                   CartItems ={listCart}
                                                                   fromCart1={deleteCartHandler1}
-                                                                  fromCart2={deleteCartHandler2}/>}/>}
+                                                                  fromCart2={deleteCartHandler2}
+                                                                  userSignIn={userSignIn}
+                                                                  currentUser={currentUser}
+                />}/>}
 
             </Route>
-            <Route path="SignIn" element={<SignIn userSignIn={userSignIn}/>} />
+            <Route path="SignIn" element={<SignIn userSignIn={userSignIn} />} />
         </Routes>
     </div>
   );

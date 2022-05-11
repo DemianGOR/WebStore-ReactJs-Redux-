@@ -21,7 +21,7 @@
       display: grid;
 
       .link__off{
-        color:#ffffff;
+        color:#000000;
         text-decoration: none;
       }
       .header__menu{
@@ -83,7 +83,7 @@
     .button__sign{
       @include positionation2(6,6);
       width: 110px;
-      background-color: #181818;
+      background-color: #ffffff;
       border: solid #FFFFFF 2px;
       border-radius: 7px;
       font-size: 22px;
@@ -91,7 +91,8 @@
       margin:5% auto;
     }
     .button__sign:hover{
-      border: 0 solid;
+      font-size: 24px;
+
     }
 
     .user__container{
@@ -106,18 +107,29 @@
       }
       .user__name{
         width: 100px;
-        height: 100px;
+        height: 50px;
         font-size: 15px;
         color:#ffffff;
         list-style: none;
 
         .user__menu-item{
           display: none;
-
+          width: 100px;
+          height: 35px;
+          border: none;
+          background-color: #717171;
+          color: #000000;
+        }
+        .user__menu-item:hover{
+          background-color: #ffffff;
         }
 
       }
-      .user__name:hover .user__menu-item {display: block;}
+      .user__name:hover .user__menu-item {
+        display: block;
+        tab-index:0;
+      }
     }
   }
+
 }

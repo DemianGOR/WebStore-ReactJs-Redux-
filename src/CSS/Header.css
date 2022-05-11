@@ -20,7 +20,7 @@
   display: grid;
 }
 .header__container .header__inner .header__menu .link__off {
-  color: #ffffff;
+  color: #000000;
   text-decoration: none;
 }
 .header__container .header__inner .header__menu .header__menu {
@@ -76,7 +76,7 @@
   grid-column-start: 6;
   grid-column-end: 6;
   width: 110px;
-  background-color: #181818;
+  background-color: #ffffff;
   border: solid #FFFFFF 2px;
   border-radius: 7px;
   font-size: 22px;
@@ -84,7 +84,7 @@
   margin: 5% auto;
 }
 .header__container .header__inner .button__sign:hover {
-  border: 0 solid;
+  font-size: 24px;
 }
 .header__container .header__inner .user__container {
   grid-column-start: 6;
@@ -100,16 +100,25 @@
 }
 .header__container .header__inner .user__container .user__name {
   width: 100px;
-  height: 100px;
+  height: 50px;
   font-size: 15px;
   color: #ffffff;
   list-style: none;
 }
 .header__container .header__inner .user__container .user__name .user__menu-item {
   display: none;
+  width: 100px;
+  height: 35px;
+  border: none;
+  background-color: #717171;
+  color: #000000;
+}
+.header__container .header__inner .user__container .user__name .user__menu-item:hover {
+  background-color: #ffffff;
 }
 .header__container .header__inner .user__container .user__name:hover .user__menu-item {
   display: block;
+  tab-index: 0;
 }
 
 /*# sourceMappingURL=Header.css.map */

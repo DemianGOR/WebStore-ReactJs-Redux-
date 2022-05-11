@@ -4,10 +4,15 @@ import {Link, Outlet} from 'react-router-dom'
 import {LogOut} from "./LogOut";
 import {ModalWindow} from "../Components/ModalWindow";
 import {Cart} from "./Cart";
+import {UserPage} from "./UserPage";
 
 
 export const Header=(props)=> {
-    const[modalActive,setModalActive]=useState()
+    const[modalActiveCart,setModalActiveCart]=useState()
+    const[modalActiveUser,setModalActiveUser]=useState()
+    const[modalActiveUserFlag,setModalActiveUserFlag]=useState()
+
+
 
     const pass = {
         id: "102414693701386840515",
@@ -28,7 +33,7 @@ export const Header=(props)=> {
 
                     </li>
 
-                    <li className="header__menu-item" onClick={()=>setModalActive(true)} >Cart</li>
+                    <li className="header__menu-item" onClick={()=>setModalActiveCart(true)} >Cart</li>
 
                     {props.currentUser.map((user) =>( user.id=== pass.id?
                     <li className="header__menu-item"><Link className="item__list" to="Add">Add Product</Link></li>:<></>
@@ -41,7 +46,8 @@ export const Header=(props)=> {
                             {props.currentUser.map((user) => (
                                 <div className="user__container "  key={user.id}>
                                     <div className="user__name ">{user.name}
-                                         <div className="user__menu-item"><LogOut signOut={props.signOut}/></div>
+                                        <div tabIndex="0" onClick={()=>{setModalActiveUser(true);setModalActiveUserFlag(true)}} className="user__menu-item" >Account</div>
+                                        <div className="user__menu-item"><LogOut signOut={props.signOut}/></div>
                                     </div>
                                     <img className="user__img" src={user.img} alt="img"/>
                                 </div>))}
@@ -50,13 +56,20 @@ export const Header=(props)=> {
                 </ul>
                     <Outlet/>
             </div>
-            <ModalWindow active={modalActive} setActive={setModalActive}>
+            <ModalWindow active={modalActiveCart} setActive={setModalActiveCart} flag={modalActiveUserFlag}
+                         setFlag={setModalActiveUserFlag}>
                 <Cart CartItems ={props.CartItems}
                       fromCart1={props.fromCart1}
                       fromCart2={props.fromCart2}
                       phones={props.phones}
-                      active={modalActive} setActive={setModalActive}                />
+                      active={modalActiveCart} setActive={setModalActiveCart}/>
            </ModalWindow>
+                <ModalWindow className="user__modal" active={modalActiveUser}
+                             setActive={setModalActiveUser}
+                             flag={modalActiveUserFlag}
+                             setFlag={setModalActiveUserFlag}>
+                    <UserPage user={props.currentUser[0]} userSignIn={props.userSignIn}/>
+                </ModalWindow>:
         </div>
 
         </>

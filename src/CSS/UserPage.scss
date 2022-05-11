@@ -1,0 +1,121 @@
+@import "Mixins";
+@mixin error(){
+  .order__error{
+    color: #ff0000;
+    width: 100%;
+    font-size: 13px;
+  }
+}
+@mixin input(){
+  margin-top: 10px ;
+  border-radius: 30px;
+  font-size: 16px;
+  padding: 10px;
+  }
+
+.userPage__container{
+    height: 100%;
+    overflow: scroll;
+    padding: 20px;
+  .userPage__inner{
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 200px repeat(4,70px) ;
+    .userPage__main-background {
+      box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .4);
+      @include positionation4(1, 4, 1, 1);
+      grid-template-columns: 1fr 1fr 1fr;
+      display: grid;
+      background-color: #181818;
+      .userPage__img {
+        width: 140px;
+        border-radius: 50px;
+        margin: auto;
+      }
+
+      .userPage__section1 {
+        @include positionation4(2, 4, 1, 1);
+        margin: auto;
+        .userPage__title {
+          margin-left: -250px;
+          color: #ffffff;
+        }
+
+        .userPage__name {
+          font-size: 30px;
+          border: 0;
+          border-radius: 20px;
+          background-color: #181818;
+          width: 300px;
+          padding: 10px;
+          color: #ffffff;
+
+        }
+        @include error;
+      }
+    }
+    .userPage__info-title{
+      @include positionation4(1, 4, 2,2);
+
+    }
+    .userPage__info-background {
+      @include positionation4(1, 4, 3,6);
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: repeat(3,1fr);
+      display: grid;
+      background-color: #ffffff;
+      box-shadow: 5px 1px 34px -9px rgba(0, 0, 0, 10);
+      padding: 10px;
+      border-radius: 20px;
+      @include error;
+
+      .userPage__title-email {
+        @include positionation4(1, 2, 1, 1);
+        margin: auto;
+      }
+
+      .userPage__email {
+        @include positionation4(2, 4, 1, 1);
+        @include input;
+      }
+
+      .userPage__title-address {
+        @include positionation4(1, 2, 2, 2);
+        margin: auto;
+
+      }
+
+      .userPage__address {
+        @include positionation4(2, 4, 2, 2);
+        @include input;
+
+      }
+      .userPage__title-phone{
+        @include positionation4(1, 2, 3, 3);
+        margin: auto;
+      }
+      .userPage__phone{
+        @include positionation4(2, 4, 3,3);
+        @include input;
+      }
+    }
+  }
+  }
+
+
+.userPage__button{
+  background-color: #181818;
+  color: #ffffff;
+  border-radius: 20px;
+  font-family: "Times New Roman";
+  font-size: 20px;
+  padding: 13px;
+  max-width: 200px;
+  margin-top: 20px;
+}
+.userPage__button:hover{
+  border: #000000 solid 3px;
+  background-color: #ffffff;
+  color: #000000;
+}

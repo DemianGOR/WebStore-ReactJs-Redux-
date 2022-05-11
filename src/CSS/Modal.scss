@@ -7,12 +7,12 @@
   left: 0;
   display: flex;
   justify-content: right;
-  transition: 0.5s;
+  transition: 1s;
   opacity: 0;
   pointer-events: none;
 
   .modal__inner{
-    min-width: 440px;
+    min-width: 400px;
     background-color: #ffffff;
     padding: 30px;
     transform: scale(0.5);
@@ -26,6 +26,12 @@
 }
 .modal__inner.active{
   transform: scale(1);
+}
 
-
+.modal__container.center{
+  justify-content: center;
+  transition: 1s all;
+}
+.modal__inner.center{
+  min-width: 600px;
 }

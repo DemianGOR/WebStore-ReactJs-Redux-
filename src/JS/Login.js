@@ -9,9 +9,11 @@ import React from "react";
              id:res.profileObj.googleId,
              name: res.profileObj.name,
              email:res.profileObj.email,
-             img: res.profileObj.imageUrl
+             img: res.profileObj.imageUrl,
+             address: "",
+             phone:""
          }
-         console.log(user,"1")
+         console.log(user)
          props.userSign(user)
      }
      const onFailure=(res)=>{

@@ -16,6 +16,7 @@
   border-radius: 10px;
   width: 100%;
   max-width: 550px;
+  padding: 20px;
 }
 .order__container .order__inner .order__form .order__main-title {
   border-bottom: #181818 solid 1px;
@@ -23,17 +24,29 @@
   margin: 20px auto;
 }
 .order__container .order__inner .order__form .order__main .order__input-section {
-  display: flex;
+  display: grid;
+  grid-template-rows: 1fr 0.09fr;
+  grid-template-columns: 2fr 7fr;
 }
 .order__container .order__inner .order__form .order__main .order__input-section .order__title {
-  margin: 35px auto;
+  margin: 10px auto;
   color: #000000;
 }
 .order__container .order__inner .order__form .order__main .order__input-section .order__input {
   height: 30px;
   width: 350px;
   border-radius: 5px;
-  margin: 35px 30px auto;
+  margin: 10px 30px 0 10px;
+}
+.order__container .order__inner .order__form .order__main .order__input-section .order__error {
+  color: #ff0000;
+  width: 100%;
+  height: 100%;
+  font-size: 13px;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 2;
 }
 .order__container .order__inner .order__form .order__main .order__input-section .order__input:focus {
   border: solid #228b22 2px;
@@ -41,10 +54,21 @@
 }
 .order__container .order__inner .order__form .order__main .order__input-description {
   height: 200px;
-  width: 400px;
+  width: 100%;
   box-sizing: border-box;
   padding: 10px;
-  margin-bottom: 30px;
+  margin: auto;
+}
+.order__container .order__inner .order__form .order__main .button__submit {
+  background-color: #181818;
+  color: #ffffff;
+  border-radius: 20px;
+  font-family: "Times New Roman";
+  font-size: 20px;
+  padding: 13px;
+  max-width: 200px;
+  margin: 20px auto 0 auto;
+  align-content: center;
 }
 .order__container .order__inner .order__form .order__main .order__input-description:focus {
   border: solid #228b22 2px;
