@@ -2,7 +2,7 @@ import {GoogleLogin} from "react-google-login";
 import React from "react";
 
  export const Login=(props)=>{
-     const clientId ="675266694834-ed76pk4qfh0qd3k8vtt0un7vsv0b3fn8.apps.googleusercontent.com"
+     const clientId ="INPUT_YOUR_CLIENTid.apps.googleusercontent.com"
      const onSuccess=(res)=>{
          console.log('Success,Current user',res.profileObj)
          const user = {
