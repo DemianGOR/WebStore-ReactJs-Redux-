@@ -35,3 +35,35 @@
 .modal__inner.center{
   min-width: 600px;
 }
+/////////////////////////
+.modal__container-center{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  transition: 1s;
+  opacity: 0;
+  pointer-events: none;
+
+  .modal__inner-center{
+    min-width: 60%;
+    height: 80%;
+    background-color: #ffffff;
+    transform: scale(0.5);
+    transition: 0.4s all;
+    max-width: 400px;
+    margin: auto;
+    border-radius: 20px;
+  }
+}
+.modal__container-center.active{
+  opacity: 1;
+  pointer-events: all;
+}
+.modal__inner-center.active{
+  transform: scale(1);
+}

@@ -1,0 +1,136 @@
+@import "Mixins";
+
+.gallery__container{
+  width: 100%;
+  background-image: url(../IMG/Rick_And_Morty_BG.JPG);
+  box-shadow: rgba(0, 0, 0, 0.9) 0px 22px 40px 34px;
+  margin-top: 3%;
+  border-radius: 20px;
+  .gallery__title{
+    font-size: 60px;
+    color: #FFFFFF;
+  }
+  .gallery__inner{
+
+    margin: 0 8% 5% 8% ;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-column-gap: 2%;
+    .gallery__items{
+      margin: 5% 5% 5% 0;
+      width: 100%;
+      height: 220px;
+      border: solid 2px #181818;
+      border-radius: 10px;
+      background-color: #181818;
+    }
+    .gallery__items:hover{
+      background-color: #303030;
+    }
+
+  }
+
+}
+////////////////
+
+.card__inner-gallery {
+  display: flex;
+  box-shadow: 11px -11px 34px -10px rgba(0,0, 0, 1);
+  height: 220px;
+  .card__item-img-gallery{
+    max-width: 220px;
+    max-height: 220px;
+    border-radius: 10px;
+
+  }
+  .card_info-section-gallery {
+    width: 100%;
+
+    .card__item-name-gallery {
+      font-size: 30px;
+      color: #ffffff;
+      margin: 3% auto;
+      max-width: 85%;
+      font-family: "Times New Roman";
+      line-height: 30px;
+
+    }
+    .card_item-title-gallery{
+      color: #717172;
+      margin: 2% auto auto 0;
+    }
+    .card__item-status-gallery {
+      width: 50%;
+      margin:  0 auto 5% auto;
+      color: #ffffff;
+      font-family: "Comic Sans MS";
+      font-size: 18px;
+
+    }
+  }
+}
+//////////////////
+.GalleryModalCard__container {
+  border-radius: 20px;
+  background-color: #FFFFFF;
+  height: 100%;
+  .GalleryModalCard__inner {
+    display: flex;
+    box-shadow: 11px -11px 34px 15px rgba(0, 0, 0, 1);
+    height: 275px;
+    background-color: #181818;
+    border-radius: 19px;
+    .GalleryModalCard__item-img {
+      max-width: 275px;
+      max-height: 275px;
+      border-radius: 10px;
+
+    }
+
+    .GalleryModalCard_info-section {
+      width: 100%;
+      .GalleryModalCard_likes{
+        display: flex;
+        justify-content: right;
+        .GalleryModalCard_likes-button{
+          background-color: #000000;
+          border-radius:5px;
+          margin: 5px 15px 0 0;
+          color: #FFFFFF;
+          padding:0 5px 0 5px;
+        }
+        .GalleryModalCard_likes-button:hover{
+          background-color: #717172;
+          border: 0 solid;
+        }
+      }
+      .GalleryModalCard__item-name {
+        font-size: 36px;
+        color: #ffffff;
+        margin: 1% auto;
+        max-width: 85%;
+        font-family: "Times New Roman";
+        line-height: 30px;
+
+      }
+      .GalleryModalCard_info-section-mini {
+        display: flex;
+        justify-content: center;
+        overflow:  auto;
+        .GalleryModalCard_item-title {
+          color: #717172;
+          margin-top: 1% ;
+        }
+
+        .GalleryModalCard__item-status {
+          width: 50%;
+          margin-top:  1% ;
+          color: #ffffff;
+          font-family: "Comic Sans MS";
+          font-size: 18px;
+
+        }
+      }
+    }
+  }
+}

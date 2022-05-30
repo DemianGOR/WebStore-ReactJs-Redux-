@@ -1,8 +1,10 @@
 import React, {useState} from "react";
 import "../CSS/NewProduct.css"
 import {InputPhotoBase64} from "./InputPhotoBase64";
+import {useDispatch} from "react-redux";
+import {addPhone} from "../redux/actions";
 
-const  AddNewProduct=(props)=>  {
+const  AddNewProduct=()=>  {
 
     const [name, setName] = useState("");
     const [quantity, setQuantity] = useState("");
@@ -27,6 +29,9 @@ const  AddNewProduct=(props)=>  {
         setDescription(event.target.value);
     };
 
+    const dispatch = useDispatch();
+
+
     const createNewPhone=(photo)=>{
 
         const phone={
@@ -38,9 +43,7 @@ const  AddNewProduct=(props)=>  {
             type:type,
             description:description,
         };
-        console.log(phone)
-        props.onAddPhones(phone);
-
+        dispatch(addPhone(phone));
         setName("");
         setQuantity("");
         setPrice("");

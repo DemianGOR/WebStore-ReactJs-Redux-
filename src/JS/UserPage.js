@@ -1,23 +1,28 @@
-import React, {useEffect, useState} from "react";
+import React  from "react";
 import "../CSS/UserPage.css"
 import {useForm} from "react-hook-form";
+import {useDispatch, useSelector} from "react-redux";
+import {userSignIn} from "../redux/actions";
 
 
 
-export const UserPage=(props)=>{
-    const user = props.user !== undefined ? props.user : {name: "", email: "", img: "", address: "", phone: ""}
+export const UserPage=()=>{
+    const dispatch = useDispatch();
+
+    const user = useSelector(state=>{
+        const {userReducer}=state;
+        return  userReducer.user
+    })
 
     const {register,
         formState:{errors},
         handleSubmit,
-        reset,
     }=useForm({defaultValues: {
-            name: `${user.name}`,
+            name: user.name,
             email: `${user.email}`,
             address:`${user.address}`,
             phone:`${user.phone}`
-        }})
-
+    }})
 
     const onSubmit = (data) => {
         const newData= {
@@ -25,9 +30,7 @@ export const UserPage=(props)=>{
             img: user.img,
             ...data
         }
-        console.log(newData)
-        user !==newData ? props.userSignIn(newData) :console.log("already exist")
-        reset()
+        dispatch(userSignIn(newData))
     }
     return(
         <>
@@ -42,7 +45,7 @@ export const UserPage=(props)=>{
                         <input className="userPage__name"  type="text"
                                {...register("name",{
                                    required:"Field is required",
-                                   minLength:{ value:3,message:"At least 3 symbols"},
+                                   minLength:{ value:1,message:"At least 3 symbols"},
                                    maxLength:{ value:25,message:"At max 25 symbols"}
                                })}
                         />
@@ -67,7 +70,7 @@ export const UserPage=(props)=>{
                     <input className="userPage__address"   placeholder="not entered"  type="text"
                            {...register("address",{
                                required:"Field is required",
-                               minLength:{ value:5,message:"At least 5 symbols"},
+                               minLength:{ value:1,message:"At least 5 symbols"},
                                maxLength:{ value:5,message:"At max 5 symbols"}
                            })}/>
                     <div  className="order__error">
@@ -77,16 +80,17 @@ export const UserPage=(props)=>{
                     <input className="userPage__phone"   placeholder="not entered" type="tel"  required
                            {...register("phone",{
                                required:"Field is required",
-                               minLength:{ value:10,message:"NO leas than 10 symbols"},
+                               minLength:{ value:1,message:"NO leas than 10 symbols"},
                                maxLength:{ value:10,message:"NO more than 10 symbols"}
                            })}/>
                     <div  className="order__error">
                         {errors?.phone&& <p>{errors?.phone?.message || "Error!"}</p>}
                     </div>
                 </div>
-                <input type="submit" className="userPage__button" onSubmit={onSubmit}/>
+
 
             </div>
+                    <input type="submit" className="userPage__button" onSubmit={onSubmit}/>
                 </form>
 
             </div>

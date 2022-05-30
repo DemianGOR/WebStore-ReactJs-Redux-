@@ -1,20 +1,27 @@
-import React, {memo, useEffect} from "react";
+import React, {memo} from "react";
 import {useParams} from "react-router-dom";
 import "../CSS/ProductPage.css"
+import {useDispatch, useSelector} from "react-redux";
+import {addPhoneToCart, quantityUpdate} from "../redux/actions";
 
 
-const ProductPage=(props)=>{
-    useEffect(()=>{
-    });
+const ProductPage=()=>{
+
+    const phones = useSelector(state=>{
+        const {phoneReducer}=state;
+        return phoneReducer.phones
+    })
 
     const params = useParams();
     const prodId = params.id;
-    const phone = props.phones.find((p)=>p.id ==prodId)
+    const phone = phones.find((p)=>p.id ==prodId)
+
+    const dispatch = useDispatch();
 
     const addToCart=()=>{
-        const cartItem= phone
-        props.onAddToCart(cartItem);
-
+        const cartItem= {...phone,cartId:Math.random()}
+        dispatch(addPhoneToCart(cartItem));
+        dispatch(quantityUpdate(cartItem.id,false))
     }
 
     return(<>

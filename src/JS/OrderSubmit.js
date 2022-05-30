@@ -2,14 +2,18 @@ import React from "react";
 import "../CSS/OrderCheckout.css"
 import {CheckoutProductsList} from "./CheckoutProductsList";
 import {useForm} from "react-hook-form";
+import {useDispatch, useSelector} from "react-redux";
+import {userSignIn} from "../redux/actions";
+import {Cart} from "./Cart";
 
-export const OrderSubmit=(props)=>{
-    const user= props.currentUser[0] !== undefined? props.currentUser[0] : {name:"",email:"" , img:"",address:"",phone:""}
+export const OrderSubmit=()=>{
+    const dispatch = useDispatch();
 
-    const {register,
-        formState:{errors},
-        handleSubmit,
-        reset,
+    const user = useSelector(state=>{
+        const {userReducer}=state;
+        return userReducer.user
+    })
+    const {register, formState:{errors}, handleSubmit,
     }=useForm({defaultValues: {
             name: `${user.name}`,
             email: `${user.email}`,
@@ -26,8 +30,7 @@ export const OrderSubmit=(props)=>{
            ...data
             }
             console.log(newData)
-        user !==newData ? props.userSignIn(newData):console.log("already exist")
-      reset()
+        dispatch(userSignIn(newData))
     }
     return (<>
         <div className="order__container" >
@@ -41,7 +44,7 @@ export const OrderSubmit=(props)=>{
                             <input className="order__input" placeholder="Name"
                                    {...register("name",{
                                        required:"Field is required",
-                                       minLength:{ value:5,message:"At least 5 symbols"},
+                                       minLength:{ value:1,message:"At least 5 symbols"},
                                        maxLength:{ value:25,message:"At max 25 symbols"}
                                    })}
                             />
@@ -66,7 +69,7 @@ export const OrderSubmit=(props)=>{
                             <input className="order__input" placeholder="Address" type="text"
                                    {...register("address",{
                                        required:"Field is required",
-                                       minLength:{ value:5,message:"At least 5 symbols"},
+                                       minLength:{ value:1,message:"At least 5 symbols"},
                                        maxLength:{ value:5,message:"At max 5 symbols"}
                                    })}/>
                             <div  className="order__error">
@@ -78,7 +81,7 @@ export const OrderSubmit=(props)=>{
                             <input className="order__input" placeholder="Phone" type="tel"
                                    {...register("phone",{
                                        required:"Field is required",
-                                       minLength:{ value:10,message:"NO least 10 symbols"},
+                                       minLength:{ value:1,message:"NO least 10 symbols"},
                                        maxLength:{ value:10,message:"NO max 10 symbols"}
                                    })}/>
                             <div  className="order__error">
@@ -92,7 +95,7 @@ export const OrderSubmit=(props)=>{
                     </div>
                 </div>
             </div>
-            <CheckoutProductsList CartItems={props.CartItems} phones={props.phones} fromCart1={props.fromCart1} fromCart2={props.fromCart2}/>
+            <CheckoutProductsList/>
         </div>
     </>);
 }

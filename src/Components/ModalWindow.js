@@ -1,5 +1,5 @@
 import "../CSS/Modal.css"
-import {useEffect} from "react";
+import React from "react";
 
 
 export const ModalWindow=({active,setActive,children,flag,setFlag})=>{

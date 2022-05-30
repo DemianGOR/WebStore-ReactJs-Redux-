@@ -2,16 +2,11 @@ import React, {useEffect} from "react";
 import "../CSS/SignIn.css";
 import { Routes,Route,Link} from 'react-router-dom';
 import ListOfItems from "./ListOfItems";
-import {Login} from "./Login";
+import Login from "./Login";
 
 
 
 const SignIn=(props)=> {
-
-
-    const userSignIn=(user)=>{
-        props.userSignIn(user)
-     }
 
     return (<>
         <div className="sign__container">
@@ -25,7 +20,7 @@ const SignIn=(props)=> {
                          <Link className="sign__go-back" to="/Home">←Back to Home page</Link>
                          <button className="sign__button">Enter</button>
                     </div>
-                    <Login className="google__login"  userSign={userSignIn}/>
+                    <Login className="google__login" />
                 </div>
             </div>
         </div>

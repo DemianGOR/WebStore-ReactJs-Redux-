@@ -1,16 +1,19 @@
-import React, {memo, useState} from "react";
+import React, {memo} from "react";
 import "../CSS/ListOfItems.css";
-import {Routes, Route, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import {useDispatch} from "react-redux";
+import {addPhoneToCart, galleryFilling, quantityUpdate} from "../redux/actions";
 
 const ItemCard=(props)=> {
-    const addToCart=()=>{
-        const cartItem= props.phone
-        props.onAddToCart(cartItem);
+    const dispatch = useDispatch();
 
+    const addToCart=()=>{
+        const cartItem= {...props.phone,cartId:Math.random()}
+        dispatch(addPhoneToCart(cartItem));
+        dispatch(quantityUpdate(cartItem.id,false))
     }
 
     return (
-        <>
             <div  className="card__container" key={props.phone.id}>
                     <div className="card__inner">
                         <div className="first__section">
@@ -28,7 +31,6 @@ const ItemCard=(props)=> {
                         </div>
                     </div>
                 </div>
-        </>
     );
 }
 

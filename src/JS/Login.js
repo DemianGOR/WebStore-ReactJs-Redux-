@@ -1,10 +1,14 @@
 import {GoogleLogin} from "react-google-login";
 import React from "react";
+import {userSignIn} from "../redux/actions";
+import {useDispatch,} from "react-redux";
 
- export const Login=(props)=>{
-     const clientId ="675266694834-ed76pk4qfh0qd3k8vtt0un7vsv0b3fn8.apps.googleusercontent.com"
+
+const Login=()=>{
+     const clientId ="675266694834-ed76pk4qfh0qd3k8vtt0un7vsv0b3fn8.apps.googleusercontent.com";
+     const dispatch = useDispatch();
      const onSuccess=(res)=>{
-         console.log('Success,Current user',res.profileObj)
+
          const user = {
              id:res.profileObj.googleId,
              name: res.profileObj.name,
@@ -14,7 +18,7 @@ import React from "react";
              phone:""
          }
          console.log(user)
-         props.userSign(user)
+         dispatch(userSignIn(user))
      }
      const onFailure=(res)=>{
          console.log('ERROR',res)
@@ -32,3 +36,6 @@ import React from "react";
    )
 
 };
+
+
+export default Login;

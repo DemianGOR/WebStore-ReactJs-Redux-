@@ -1,11 +1,17 @@
 import React from "react";
 import "../CSS/Cart.css";
+import {useDispatch} from "react-redux";
+import {deletePhoneFromCart, quantityUpdate} from "../redux/actions";
 
  export const CartCard=(props)=> {
-    const deleteFromCart=()=>{
-        const cartItem= props.CartItem
-        props.deleteFromCart(cartItem);
-    }
+     const dispatch = useDispatch();
+
+     const deleteFromCart=()=> {
+         const cartItemId = props.CartItem.cartId;
+         dispatch(deletePhoneFromCart(cartItemId));
+         dispatch(quantityUpdate(props.CartItem.id,true))
+
+     }
 
 
     return (

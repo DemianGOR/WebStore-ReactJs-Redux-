@@ -1,22 +1,31 @@
 import React, {useState} from "react";
 import "../CSS/Header.css"
 import {Link, Outlet} from 'react-router-dom'
-import {LogOut} from "./LogOut";
 import {ModalWindow} from "../Components/ModalWindow";
 import {Cart} from "./Cart";
 import {UserPage} from "./UserPage";
+import {useDispatch, useSelector} from "react-redux";
+import { userSignOut} from "../redux/actions";
+import {MyComponent} from "../Components/MyCommponent";
 
 
-export const Header=(props)=> {
+const Header=()=> {
     const[modalActiveCart,setModalActiveCart]=useState()
     const[modalActiveUser,setModalActiveUser]=useState()
     const[modalActiveUserFlag,setModalActiveUserFlag]=useState()
 
+    const user = useSelector(state=>{
+        const {userReducer}=state;
+        return userReducer.user
+    })
 
+    const dispatch=useDispatch();
 
-    const pass = {
-        id: "102414693701386840515",
-    }
+    const signIn =(
+        <button className="button__sign">
+            <Link className="link__off" to="SignIn">Sign in</Link>
+        </button>)
+
 
         return (<>
         <div className="header__container">
@@ -32,47 +41,42 @@ export const Header=(props)=> {
                         </ul>
 
                     </li>
-
+                    <li className="header__menu-item"><Link className="header__menu-item" to="Gallery">Gallery</Link></li>
                     <li className="header__menu-item" onClick={()=>setModalActiveCart(true)} >Cart</li>
 
-                    {props.currentUser.map((user) =>( user.id=== pass.id?
-                    <li className="header__menu-item"><Link className="item__list" to="Add">Add Product</Link></li>:<></>
-                    ))}
-                    {props.currentUser.length === 0?
-                        <button className="button__sign">
-                            <Link className="link__off" to="SignIn">Sign in</Link>
-                        </button>:
+                    <MyComponent.isUserAdmin userId={user.id}>
+                        <li className="header__menu-item"><Link className="item__list" to="Add">Add Product</Link></li>
+                    </MyComponent.isUserAdmin>
+
+                    <MyComponent.isUserAuth id={user.id} different={signIn}>
                         <div className="user__container ">
-                            {props.currentUser.map((user) => (
                                 <div className="user__container "  key={user.id}>
                                     <div className="user__name ">{user.name}
                                         <div tabIndex="0" onClick={()=>{setModalActiveUser(true);setModalActiveUserFlag(true)}} className="user__menu-item" >Account</div>
-                                        <div className="user__menu-item"><LogOut signOut={props.signOut}/></div>
+                                        <div className="user__menu-item" onClick={()=>dispatch(userSignOut())}>Logout</div>
                                     </div>
                                     <img className="user__img" src={user.img} alt="img"/>
-                                </div>))}
+                                </div>
                         </div>
-                    }
+                    </MyComponent.isUserAuth>
                 </ul>
                     <Outlet/>
             </div>
             <ModalWindow active={modalActiveCart} setActive={setModalActiveCart} flag={modalActiveUserFlag}
                          setFlag={setModalActiveUserFlag}>
-                <Cart CartItems ={props.CartItems}
-                      fromCart1={props.fromCart1}
-                      fromCart2={props.fromCart2}
-                      phones={props.phones}
-                      active={modalActiveCart} setActive={setModalActiveCart}/>
+                <Cart setActive={setModalActiveCart}/>
            </ModalWindow>
-                <ModalWindow className="user__modal" active={modalActiveUser}
+            <ModalWindow className="user__modal" active={modalActiveUser}
                              setActive={setModalActiveUser}
                              flag={modalActiveUserFlag}
                              setFlag={setModalActiveUserFlag}>
-                    <UserPage user={props.currentUser[0]} userSignIn={props.userSignIn}/>
-                </ModalWindow>:
+                <UserPage/>
+            </ModalWindow>
         </div>
 
         </>
     );
 }
 
+
+export default Header;
