@@ -1,6 +1,6 @@
 import React from "react";
-import "../CSS/ListOfItems.css"
-import ItemCard from "./ItemCard";
+import "../Phones/SCSS/ListOfItems.css"
+import ItemCard from "../Phones/JS/ItemCard";
 import {useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
 

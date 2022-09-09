@@ -1,7 +1,7 @@
 import React from "react";
-import "../CSS/Cart.css";
+import "../SCSS/Cart.css";
 import {useDispatch} from "react-redux";
-import {deletePhoneFromCart, quantityUpdate} from "../redux/actions";
+import {deletePhoneFromCart, quantityUpdate} from "../../redux/actions";
 
  export const CartCard=(props)=> {
      const dispatch = useDispatch();

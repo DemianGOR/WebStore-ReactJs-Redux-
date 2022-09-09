@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import "../CSS/ListOfItems.css"
+import "../../Phones/SCSS/ListOfItems.css"
 import { useSelector} from "react-redux";
 import {GalleryCard} from "./GalleryCard";
 

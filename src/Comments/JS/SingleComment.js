@@ -1,4 +1,4 @@
-import "../CSS/Comments.css"
+import "../SCSS/Comments.css"
 
 
 export const SingleComment=(props)=> {

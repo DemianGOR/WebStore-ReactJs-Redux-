@@ -1,7 +1,7 @@
-import "../CSS/Gallery.css";
+import "../SCSS/Gallery.css";
 import {useDispatch} from "react-redux";
-import {galleryDislikeLike} from "../redux/actions";
-import {Comments} from "./Comments";
+import {galleryDislikeLike} from "../../redux/actions";
+import {Comments} from "../../Comments/JS/Comments";
 
 export const GalleryModalCard=(props)=> {
 const dispatch = useDispatch()

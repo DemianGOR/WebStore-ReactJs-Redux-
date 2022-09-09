@@ -1,5 +1,5 @@
 import React from "react";
-import "../CSS/ListOfItems.css"
+import "../SCSS/ListOfItems.css"
 import ItemCard from "./ItemCard";
 import {useSelector} from "react-redux";
 

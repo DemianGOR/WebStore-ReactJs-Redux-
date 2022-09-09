@@ -1,10 +1,10 @@
 import React from "react";
 import "../CSS/OrderCheckout.css"
-import {CheckoutProductsList} from "./CheckoutProductsList";
+import {CheckoutProductsList} from "../Cart/JS/CheckoutProductsList";
 import {useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
 import {userSignIn} from "../redux/actions";
-import {Cart} from "./Cart";
+import {Cart} from "../Cart/JS/Cart";
 
 export const OrderSubmit=()=>{
     const dispatch = useDispatch();

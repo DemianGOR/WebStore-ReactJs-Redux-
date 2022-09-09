@@ -2,9 +2,9 @@ import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import uniqid from 'uniqid';
 import {SingleComment} from "./SingleComment";
-import "../CSS/Comments.css"
-import {galleryComment} from "../redux/actions";
-import {MyComponent} from "../Components/MyCommponent";
+import "../SCSS/Comments.css"
+import {galleryComment} from "../../redux/actions";
+import {MyComponent} from "../../Components/MyCommponent";
 
 
 export const Comments=(props)=> {

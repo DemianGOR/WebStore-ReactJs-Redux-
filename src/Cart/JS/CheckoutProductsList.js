@@ -1,8 +1,8 @@
 import React from "react";
-import "../CSS/OrderCheckout.css"
+import "../../CSS/OrderCheckout.css"
 import {CartCard} from "./CartCard";
 import {useSelector} from "react-redux";
-import {MyComponent} from "../Components/MyCommponent";
+import {MyComponent} from "../../Components/MyCommponent";
 
 
 export const CheckoutProductsList=(props)=>{

@@ -2,13 +2,13 @@ import './App.css';
 import  Header from "./JS/Header";
 import React  from "react"
 import {Route, Routes} from "react-router-dom";
-import AddNewProduct from "./JS/AddNewProduct";
+import AddNewProduct from "./AddNewProduct/JS/AddNewProduct";
 import SignIn from "./JS/SignIn";
-import ListOfItems from "./JS/ListOfItems";
-import ProductPage from "./JS/ProductPage";
+import ListOfItems from "./Phones/JS/ListOfItems";
+import ProductPage from "./ProductPage/JS/ProductPage";
 import {CategoryItemList} from "./JS/CategoryItemList";
 import {OrderSubmit} from "./JS/OrderSubmit";
-import {Gallery} from "./JS/Gallery";
+import {Gallery} from "./Gallery/JS/Gallery";
 
 
 

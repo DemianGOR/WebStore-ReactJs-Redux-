@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import "../CSS/NewProduct.css"
+import "../SCSS/NewProduct.css"
 import {InputPhotoBase64} from "./InputPhotoBase64";
 import {useDispatch} from "react-redux";
-import {addPhone} from "../redux/actions";
+import {addPhone} from "../../redux/actions";
 
 const  AddNewProduct=()=>  {
 

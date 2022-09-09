@@ -1,8 +1,8 @@
 import React, {memo} from "react";
 import {useParams} from "react-router-dom";
-import "../CSS/ProductPage.css"
+import "../SCSS/ProductPage.css"
 import {useDispatch, useSelector} from "react-redux";
-import {addPhoneToCart, quantityUpdate} from "../redux/actions";
+import {addPhoneToCart, quantityUpdate} from "../../redux/actions";
 
 
 const ProductPage=()=>{

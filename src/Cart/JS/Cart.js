@@ -1,9 +1,9 @@
 import React, {useEffect} from "react";
 import {CartCard} from "./CartCard";
-import "../CSS/Cart.css";
+import "../SCSS/Cart.css";
 import {Link} from 'react-router-dom';
 import {useSelector} from "react-redux";
-import {MyComponent} from "../Components/MyCommponent";
+import {MyComponent} from "../../Components/MyCommponent";
 
 export const Cart=(props)=> {
 

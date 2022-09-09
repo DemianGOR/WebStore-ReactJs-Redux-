@@ -1,5 +1,5 @@
-import "../CSS/Gallery.css";
-import {GalleryModalWindow} from "../Components/GalleryModalWindow";
+import "../SCSS/Gallery.css";
+import {GalleryModalWindow} from "../../Components/GalleryModalWindow";
 import {useState} from "react";
 import {GalleryModalCard} from "./GalleryModalCard";
 

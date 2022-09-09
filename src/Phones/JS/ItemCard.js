@@ -1,8 +1,8 @@
 import React, {memo} from "react";
-import "../CSS/ListOfItems.css";
+import "../SCSS/ListOfItems.css";
 import {Link} from 'react-router-dom';
 import {useDispatch} from "react-redux";
-import {addPhoneToCart, galleryFilling, quantityUpdate} from "../redux/actions";
+import {addPhoneToCart, galleryFilling, quantityUpdate} from "../../redux/actions";
 
 const ItemCard=(props)=> {
     const dispatch = useDispatch();

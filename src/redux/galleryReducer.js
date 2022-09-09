@@ -8,7 +8,7 @@ const initialState = {
     gallery: []
 };
 axios.get('https://rickandmortyapi.com/api/character')
-    .then(function (response) {
+    .then((response)=> {
         response.data.results.forEach((character) => {
             character.likes=0
             character.dislikes=0

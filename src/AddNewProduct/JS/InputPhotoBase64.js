@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import "../CSS/NewProduct.css"
+import "../SCSS/NewProduct.css"
 
 
 export const InputPhotoBase64=(props)=>{

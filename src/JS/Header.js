@@ -2,8 +2,8 @@ import React, {useState} from "react";
 import "../CSS/Header.css"
 import {Link, Outlet} from 'react-router-dom'
 import {ModalWindow} from "../Components/ModalWindow";
-import {Cart} from "./Cart";
-import {UserPage} from "./UserPage";
+import {Cart} from "../Cart/JS/Cart";
+import {UserPage} from "../UserPage/JS/UserPage";
 import {useDispatch, useSelector} from "react-redux";
 import { userSignOut} from "../redux/actions";
 import {MyComponent} from "../Components/MyCommponent";

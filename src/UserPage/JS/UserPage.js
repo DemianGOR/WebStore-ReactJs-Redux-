@@ -1,8 +1,8 @@
-import React  from "react";
-import "../CSS/UserPage.css"
+import React, {useEffect} from "react";
+import "../SCSS/UserPage.css"
 import {useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
-import {userSignIn} from "../redux/actions";
+import {userSignIn} from "../../redux/actions";
 
 
 
@@ -13,6 +13,7 @@ export const UserPage=()=>{
         const {userReducer}=state;
         return  userReducer.user
     })
+
 
     const {register,
         formState:{errors},
